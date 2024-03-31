@@ -1,7 +1,6 @@
-import sys
 from PyQt5.Qt import Qt
-from PyQt5.QtGui import QKeyEvent 
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QTextEdit, QLineEdit
+from chatbotLogic import generateResponse
 
 class ChatbotGUI(QWidget):
     def __init__(self): 
@@ -10,8 +9,8 @@ class ChatbotGUI(QWidget):
 
     def initUI(self):
         self.layout = QVBoxLayout()
-        self.setMinimumWidth(500)
-        self.setMinimumHeight(400)
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(800)
 
         self.chatDisplay = QTextEdit()
         self.chatDisplay.setReadOnly(True)
@@ -40,13 +39,11 @@ class ChatbotGUI(QWidget):
         if userMessage:
             self.chatDisplay.append("You: " + userMessage)
 
-            botResponse = self.generateResponse(userMessage)
-            self.chatDisplay.append("Bot: " + botResponse)
+            generateResponse(self, userMessage)
 
             self.messageInput.clear()
 
-    def generateResponse(self, userMessage):
-        return "This is a placeholder response for now"
+    
     
 
  

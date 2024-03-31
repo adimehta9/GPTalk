@@ -3,6 +3,7 @@ from ChatbotGui import ChatbotGUI
 from PyQt5.QtWidgets import QApplication
 
 
+
 def main():
     app = QApplication(sys.argv)
     chatbotGUI = ChatbotGUI()
